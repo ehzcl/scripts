@@ -1,0 +1,8 @@
+#!/bin/sh
+# creator : Ewerton Lima
+# sb = set brightness 
+
+
+exec xrandr --listactivemonitors | grep -v 'Monitors' | awk -F ' ' '{print $NF}' | while read f; do xrandr --output $f --brightness $1 --gamma 1:0.9:0.9;done
+
+exit 0
