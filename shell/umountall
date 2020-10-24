@@ -1,0 +1,8 @@
+#!/bin/sh
+# creator : Ewerton Lima
+# umount all devices currently mounted
+
+lsblk | awk -F ' ' '{ print $NF }' | grep -P '^\/(mnt$|run)' | while read f; do sudo umount $f; done && exit 0
+
+exit 1
+
