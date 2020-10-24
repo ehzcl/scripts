@@ -1,0 +1,9 @@
+#!/bin/sh
+# creator : Ewerton Lima
+# open RPGM MV games using nwjs
+
+cd "$1"
+sh -c nw > /dev/null&
+cd ..
+
+exit 0
