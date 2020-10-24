@@ -1,0 +1,8 @@
+#!/bin/sh
+# creator : Ewerton Lima
+# writes uptime to log, umountall devices and shutdown
+
+echo "$(date +'%d/%m/%y') - $(uptime -p)" >> ~/uptime_log.txt
+sleep 1
+umountall && sleep 1
+shutdown now
