@@ -1,9 +1,6 @@
-#!/bin/sh
-# creator : Ewerton Lima
+#!/bin/dash
 # open RPGM MV games using nwjs
-
-cd "$1"
-sh -c nw > /dev/null&
-cd ..
+[ -z $1 ] && printf 'provide a dir name' && exit 1
+[ -e "$(whereis nw | cut -d' ' -f2)" ] && cd "$1" && dash -c nw& > /dev/null && cd .. || printf "install nwjs"
 
 exit 0

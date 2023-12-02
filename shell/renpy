@@ -1,15 +1,6 @@
-#!/bin/sh
-# creator : Ewerton Lima
+#!/bin/dash
 # open renpy games that have linux support
 
-tmp=$(ls -la $1/*.sh | grep 'x' )
-
-
-if [ -z "$tmp" ]
-then
-    chmod 755 -R $1/lib $1/*.sh && ./$1/*.sh& > /dev/null
-else
-    sh $1/*.sh& > /dev/null
-fi
+[ -x $1/*.sh ] && sh $1/*.sh& >/dev/null || chmod 755 -R $1/lib $1/*.sh && ./$1/*.sh& > /dev/null
 
 exit 0

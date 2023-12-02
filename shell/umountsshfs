@@ -1,0 +1,5 @@
+#!/bin/dash
+# umount all sshfs mounted devices
+
+df -T | grep sshfs | awk -F ' ' '{print $NF}' | xargs -I {}  fusermount -u "{}" && exit 0
+exit 1
