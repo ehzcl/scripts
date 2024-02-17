@@ -24,4 +24,8 @@ read selection
 
 # to show video remove the --no-video flag from the command below
 file=${playlists[$selection]}
-while read f; do mpv --no-video "$f"; done < "$HOME/playlists/$file"
+while read f; do echo "$(sed 's/.*;//' <<<$f)" ;mpv --no-video $(sed 's/;.*//' <<<"$f"); done < "$HOME/playlists/$file"
+
+# playlist file sample:
+#https://youtu.be/-jGBp5HBLFs; Frieren OP1 - YOASOBI「勇者」
+#https://youtu.be/mUSVav9pKO4; Frieren OP2 - Sunny - Yorushika
